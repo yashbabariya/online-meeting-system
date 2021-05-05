@@ -1,0 +1,117 @@
+<div class="container" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+    <h3 class="text-center mb-3">Login</h3>
+    <div class="card" style="width:100%; max-width: 35rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;" class="card-header clr">
+            <p class="m-0">Login Form</p><a href="/signup" type="button" class="btn btn-outline-success btncol">Sign
+                Up</a>
+        </div>
+        <div class="card-body">
+            <form action="/login" method="POST" class="frm_shadow">
+                <% if(locals.messages.success){ %>
+                <div class="alert alert-success" role="alert">
+                    <%= locals.messages.success %>
+                </div>
+                <% } %>
+                <% if(locals.messages.error){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= locals.messages.error %>
+                </div>
+                <% } %>
+                <div class="mb-3">
+                    <label class="form-label lcol">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-text icol">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                        </div>
+                        <input name="username" type="text" class="form-control" placeholder="Username" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label lcol">Password</label>
+                    <div class="input-group">
+                        <div class="input-group-text icol">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </div>
+                        <input name="password" type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <a href="/forgot" type="button" class="btn btn-link">Forgot Password?</a>
+                </div>
+                <button style="width: 100%;" type="submit" class="btn btn-primary loginbtn">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        /* background: linear-gradient(to right, #7b113a 20%, #150e56 100%, #1597bb 20%,
+                #8fd6e1 20%); */
+        background-color: #000014;
+        background-image: url("https://www.transparenttextures.com/patterns/flowers.png");
+    }
+
+
+    h3 {
+        color: white;
+    }
+
+    .container {
+        margin-top: 180px;
+    }
+
+    .clr {
+        /* background-color: black; */
+        background: linear-gradient(to right, #150e56 30%, #1597bb 90%);
+
+    }
+
+    p {
+        color: white;
+        font-weight: bold;
+    }
+
+    .btncol {
+        color: white;
+        border-color: white;
+        font-weight: bold;
+    }
+
+    .btncol:hover {
+        background: linear-gradient(to right, #7b113a 70%, #150e56 100%, #1597bb 90%,
+                #8fd6e1 60%);
+
+    }
+
+    .lcol {
+        font-weight: bold;
+    }
+
+    .icol {
+        color: white;
+        /* background-color: black; */
+        background: linear-gradient(to right, #150e56 30%, #1597bb 90%);
+
+    }
+
+    .loginbtn {
+        background: linear-gradient(to right, #150e56 30%, #1597bb 90%);
+        border: lightgray;
+        font-weight: bold;
+        color: white;
+
+    }
+
+    .loginbtn:hover {
+        /* background-color: lightgreen; */
+        background: linear-gradient(to right, #7b113a 70%, #150e56 100%, #1597bb 90%,
+                #8fd6e1 60%);
+    }
+
+    .frm_shadow:hover {
+        box-shadow: 0 0 900px 0 rgba(20, 27, 202, 0.17);
+        cursor: pointer;
+    }
+
+</style>
