@@ -71,8 +71,13 @@ app.use("/new-meeting", newMeeting);
 // login
 app.use("/login", login);
 
+app.get("/forgot", (req, res) => {
+  res.render("/forgot");
+})
+
 //forgot-Password
-app.use("/forgot", forgot);
+// app.use("/forgot", forgot);
+
 
 // Reset-Password
 app.use('/reset', reset);
