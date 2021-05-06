@@ -46,7 +46,7 @@ Example
 const mongoose = require("mongoose");
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:3000/your_db_name", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/your_db_name", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
