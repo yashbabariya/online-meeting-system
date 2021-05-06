@@ -26,7 +26,7 @@ const index = require("./routes/index");
 const newMeeting = require("./routes/newMeeting");
 const { session } = require("passport");
 mongoose
-  .connect("mongodb://localhost:27017/omsdb", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/omsdb", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
