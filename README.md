@@ -1,4 +1,4 @@
-# WebRTC Video Chat
+# Online-meeting-system
 
 Simple Web Application that offer you to create video meeting room using WebRTC and Socket
 
@@ -15,9 +15,9 @@ You have to install [Node.js](https://nodejs.org/en/) in your machine.
 After installing node clone the repo by using git
 
 ```
-git clone https://github.com/50UM3N/video-chat.git
+git clone https://github.com/yashbabariya/online-meeting-system
                         or
-git clone git@github.com:50UM3N/video-chat.git
+git clone git@github.com:yashbabariya/online-meeting-system.git
 ```
 
 Or you can download the zip file.
@@ -38,16 +38,24 @@ npm i --sav-dev nodemon
 
 ## Setting Database
 
-For the database I use [mongodb](https://www.mongodb.com/) [Atlas](https://www.mongodb.com/cloud/atlas). But you can use the local also.
-
-If you don't have any account in [Atlas](https://www.mongodb.com/cloud/atlas). Visit the page and create a free account then get your connection string. More at [Documentation](https://docs.atlas.mongodb.com/tutorial/create-new-cluster/).
-
-Rename the file .env_sample to .env then replace "connection string" to your connection string
+For the database I use [mongodb](https://www.mongodb.com/) we can use the local .
 
 Example
 
 ```
-MONGO_URL=mongodb+srv://dbUser:<password>@cluster0.kfx8y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+const mongoose = require("mongoose");
+
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:3000/your_db_name", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.log("database connected");
+  }).catch((err) => {
+    console.log(`Database Connection Error !!! ${err}`);
+  });
 ```
 
 ## Running the App
@@ -55,7 +63,7 @@ MONGO_URL=mongodb+srv://dbUser:<password>@cluster0.kfx8y.mongodb.net/myFirstData
 If you install nodemon the you can use. (devStart script is already added to the package.json)
 
 ```
-npm run devStart
+nodemon server.js
 ```
 
 or
@@ -72,7 +80,7 @@ node server.js
 
 For deploy the project I use [heroku](https://heroku.com)
 
-[Video Chat](https://soumen-video-calling-app.herokuapp.com/)
+[Video Chat](https://online-meeting-systems.herokuapp.com/)
 
 ## Built With
 
@@ -85,4 +93,4 @@ For deploy the project I use [heroku](https://heroku.com)
 
 ## License
 
-Video Chat is released under the [MIT license](LICENSE.txt).
+Online-meeting-system is released under the [MIT license](LICENSE.txt).
